@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>    
+    <iconUrl>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSULS7tDTaLyhA-dAn_vmVsHAdkEeZYOogoupknspCSb1fGoqZZkjL3yw</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>ETAP NUnit</tags>	
+	
+  </metadata>
+  
+  <files>
+	<file src="..\NUnit-2.6.3\**\*.*"  target="content\NUnit"/>
+	</files>
+</package>
