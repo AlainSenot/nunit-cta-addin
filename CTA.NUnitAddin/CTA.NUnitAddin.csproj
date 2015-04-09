@@ -84,7 +84,9 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)packages\NUnit.Runners.2.6.4\tools\*.*"   "$(SolutionDir)dist\NUnit\tools\" /Y /E
-xcopy "$(TargetDir)CTA*.*"   "$(SolutionDir)dist\NUnit\tools\addins\" /Y</PostBuildEvent>
+xcopy "$(TargetDir)CTA*.dll"   "$(SolutionDir)dist\NUnit\tools\addins\" /Y
+xcopy "$(TargetDir)log4net.dll"   "$(SolutionDir)dist\NUnit\tools\addins\" /Y
+xcopy "$(TargetDir)RestSharp.dll"   "$(SolutionDir)dist\NUnit\tools\addins\" /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
