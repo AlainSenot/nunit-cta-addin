@@ -7,8 +7,8 @@
     <ProjectGuid>{D17A4134-AA88-4B26-A3C4-6D86A7F0AAFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ETAP.TestData</RootNamespace>
-    <AssemblyName>ETAP.TestData</AssemblyName>
+    <RootNamespace>CTA.TestData</RootNamespace>
+    <AssemblyName>CTA.TestData</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
