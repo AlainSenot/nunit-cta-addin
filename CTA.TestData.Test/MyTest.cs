@@ -13,7 +13,7 @@ namespace CTA.TestData.Test
         [SetUp]
         public void Init()
         {
-            ctaTestCase = TinyIoC.TinyIoCContainer.Current.Resolve<CTA.TestData.ITestCase>();
+            ctaTestCase = CTA.TestData.Connector.GetTestCase(true);
         }
 
         [TestCase(Description=@"Checking disk free space", Category="System")]
@@ -37,12 +37,12 @@ namespace CTA.TestData.Test
     [TestFixture]
     public class MyTest2
     {
-        private CTA.TestData.ITestCase etapTestCase = null;
+        private CTA.TestData.ITestCase ctaTestCase = null;
 
         [SetUp]
         public void Init()
         {
-            etapTestCase = TinyIoC.TinyIoCContainer.Current.Resolve<CTA.TestData.ITestCase>();
+            ctaTestCase = CTA.TestData.Connector.GetTestCase();
         }
 
         [TestCase(Description = @"Checking RAM", Category = "System")]
@@ -50,21 +50,25 @@ namespace CTA.TestData.Test
         {
             var ram = GC.GetTotalMemory(false);
             Assert.Greater(ram, 1000, "RAM is less than 1000 bytes");
-            if (etapTestCase != null)
+            if (ctaTestCase != null)
             {
-                etapTestCase.AddTestData("TotalMemory", ram.ToString());
-                etapTestCase.AddTestData("Random value", new Random().NextDouble().ToString());
+                ctaTestCase.AddTestData("TotalMemory", ram.ToString());
+                ctaTestCase.AddTestData("Random value", new Random().NextDouble().ToString());
             }
         }
 
         [TestCase(Description = @"Checking stuff")]
         public void MoreValues()
         {
-            if (etapTestCase != null)
+            if (ctaTestCase != null)
             {
-                etapTestCase.AddTestData("Data1", "should not be there");
-                etapTestCase.AddTestData("Data1", new Random().NextDouble().ToString());
-                etapTestCase.AddTestData("Data2", new Random().NextDouble().ToString());
+                bool b = ctaTestCase.AddTestData("Data1", "should not be there");
+                b = b && ctaTestCase.AddTestData("Data1", new Random().NextDouble().ToString());
+                b = b && ctaTestCase.AddTestData("Data2", new Random().NextDouble().ToString());
+                if (!b)
+                {
+                    Assert.Inconclusive("Cannot add test data");
+                }
             }
         }
     }

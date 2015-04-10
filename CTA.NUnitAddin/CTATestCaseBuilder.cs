@@ -19,7 +19,7 @@ namespace CTA.NUnitAddin
         }
 
         #region ITestCaseBuilder Methods
-        public bool CanBuildFrom(MethodInfo method)
+        public new bool CanBuildFrom(MethodInfo method)
         {
             return NUnit.Core.Reflect.HasAttribute(method, "NUnit.Framework.TestAttribute", false)
                 || NUnit.Core.Reflect.HasAttribute(method, "NUnit.Framework.TestCaseAttribute", false)
@@ -27,18 +27,18 @@ namespace CTA.NUnitAddin
                 || NUnit.Core.Reflect.HasAttribute(method, "NUnit.Framework.TheoryAttribute", false);
         }
 
-        public Test BuildFrom(MethodInfo method)
+        public new Test BuildFrom(MethodInfo method)
         {
             return BuildFrom(method, null);
         }
 
         #region ITestCaseBuilder2 Members
-        public bool CanBuildFrom(MethodInfo method, Test parentSuite)
+        public new bool CanBuildFrom(MethodInfo method, Test parentSuite)
         {
             return CanBuildFrom(method);
         }
 
-        public Test BuildFrom(MethodInfo method, Test parentSuite)
+        public new Test BuildFrom(MethodInfo method, Test parentSuite)
         {
 
             ITestCaseProvider testCaseProvider = Host.GetExtensionPoint("TestCaseProviders") as ITestCaseProvider;
@@ -50,7 +50,7 @@ namespace CTA.NUnitAddin
 
         #endregion
 
-        public Test BuildParameterizedMethodSuite(MethodInfo method, Test parentSuite)
+        public new Test BuildParameterizedMethodSuite(MethodInfo method, Test parentSuite)
         {
             ParameterizedMethodSuite methodSuite = new ParameterizedMethodSuite(method);
             NUnitFramework.ApplyCommonAttributes(method, methodSuite);

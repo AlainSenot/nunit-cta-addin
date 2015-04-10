@@ -12,6 +12,7 @@
         /// </summary>
         /// <param name="dataName">The name of data to add. If a data value is already defined for this name, it will be overriden.</param>
         /// <param name="dataValue">The value of the data to add</param>
-        void AddTestData(string dataName, string dataValue);
+        /// <returns>true if the data was added to the test case, false otherwise (a message in the Console.Error is expected)</returns>
+        bool AddTestData(string dataName, string dataValue);
     }
 }

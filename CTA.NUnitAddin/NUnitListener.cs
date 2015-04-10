@@ -19,8 +19,6 @@ namespace CTA.NUnitAddin
     {
         private string testCaseID;
         private Hashtable testCaseData;
-        private string testCaseDescription = "";
-        private string testCaseCapability = "";
         private ScreenCapture screenCapture = new ScreenCapture();
 
         private static string capabilityLabel = "Capability";
@@ -187,9 +185,10 @@ namespace CTA.NUnitAddin
             testCaseData = new Hashtable();
         }
 
-        public void AddTestData(string dataName, string dataValue)
+        public bool AddTestData(string dataName, string dataValue)
         {
             testCaseData[dataName] = dataValue;
+            return true;
         }
 
         public void UnhandledException(Exception exception)
