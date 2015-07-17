@@ -215,6 +215,7 @@ namespace CTA.NUnitAddin
             testCase.SetCategories(result.Test.Categories);
 			testCase.SetProperties(result.Test.Properties);
             testCase.AddProperties(testCaseData);
+            testCase.Properties.Add("time", result.Time);
 
             return testCase;
         }

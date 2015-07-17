@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CTA.NUnitAddin</id>
+    <version>1.0.1</version>
+    <title>CTA.NUnitAddin</title>
+    <authors>Thomson Reuters</authors>
+    <owners>Compass Test Automation team</owners>
+    <projectUrl>https://github.com/thomsonreuters/nunit-cta-addin</projectUrl>
+    <iconUrl>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSULS7tDTaLyhA-dAn_vmVsHAdkEeZYOogoupknspCSb1fGoqZZkjL3yw</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NUnit Addin for reporting to Compass Test Automation</description>
+    <releaseNotes>Initial version, replaces the former ETAP.NUnitAddin.</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>CTA NUnit</tags>
+  </metadata>
+  <files>
+    <file src="dist\**\*.*"  target=""/>
+  </files>
+</package>
