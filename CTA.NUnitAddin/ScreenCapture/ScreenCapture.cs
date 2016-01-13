@@ -111,9 +111,21 @@ namespace CTA.NUnitAddin
             {
                 name = Regex.Replace(name, @"Eikon.OPSConfidenceTests.Tests.", "");
             }
-            string path = Path.Combine(CTAService.CtaExecutionDir, Regex.Replace(name, @"\([^\)]*\)", "") + "_" + DateTime.Now.ToString("HH_mm_ss") + ".png");
-            Logger.Info("The screenshot Path is :" + path);
-            return path;
+            try
+            {
+                string path = Path.Combine(CTAService.CtaExecutionDir, Regex.Replace(name, @"\([^\)]*\)", "") + "_" + DateTime.Now.ToString("HH_mm_ss") + ".png");
+                Logger.Info("The screenshot Path is :" + path);
+                return path;
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Cannot combine paths to create screenshot path for testCaseID : " + testCaseID);
+                Logger.Error("String 1 : " + CTAService.CtaExecutionDir);
+                Logger.Error("String 2 : " + Regex.Replace(name, @"\([^\)]*\)", "") + "_" + DateTime.Now.ToString("HH_mm_ss") + ".png");
+                Logger.Error(e.Message);
+                Logger.Error(e.InnerException);
+                return "";
+            }
         }
 
 
